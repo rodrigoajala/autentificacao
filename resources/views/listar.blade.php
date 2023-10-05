@@ -21,6 +21,7 @@
     <table border="1">
         <tr>
             <th>id</th>
+            <th>Proprietario</th>
             <th>Titulo</th>
             <th>Data Limite</th>
             <th>Excluir</th>
@@ -29,6 +30,7 @@
         @foreach ($projects as $project)
             <tr>
                 <td>{{ $project->id }}</td>
+                <td>{{ $project->user->name }}</td>
                 <td>{{ $project->title }}</td>
                 <td>{{ $project->deadLine }}</td>
                 <td><a href="{{ route('delete_route', $project->id) }}">Deletar</a></td>

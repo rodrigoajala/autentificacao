@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->string('title');
+            $table->unsignedBigInteger('user_id');
             $table->string('deadLine');
             $table->id();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

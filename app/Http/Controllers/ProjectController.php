@@ -25,13 +25,13 @@ class ProjectController extends Controller
 
     public function createProject()
     {
-
         return view('project');
     }
 
     public function recordProject(ProjectRequest $request)
     {
         $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
         $project = $this->projectService->saveProject($data);
         if (!empty($project)) {
             return redirect()->route('listarProjetosDeRota');

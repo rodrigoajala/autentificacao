@@ -11,7 +11,7 @@ class ProjectService
         $saveProject = Project::create([
             'title' => $project['title'],
             'deadLine' => $project['deadline'],
-
+            'user_id' => $project['user_id'],
         ]);
 
         return $saveProject;
@@ -19,7 +19,7 @@ class ProjectService
 
     public function list()
     {
-        return Project::all();
+        return Project::with('user')->get();
     }
 
     public function delete($id)
