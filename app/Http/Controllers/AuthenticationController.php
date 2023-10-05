@@ -8,6 +8,7 @@ use App\Http\Requests\LoginRequest;
 
 use App\Services\SignupService;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,6 +18,12 @@ class AuthenticationController extends Controller
         private readonly SignupService $signupService,
 
     ) {
+    }
+
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 
     public function login()

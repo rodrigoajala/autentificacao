@@ -16,7 +16,8 @@
     <h1>
         Project management:
     </h1>
-    @csrf
+    <a href="{{ route('cadastrarProjeto') }}">Cadastrar projeto</a>
+    <br><br>
     <table border="1">
         <tr>
             <th>id</th>
@@ -38,10 +39,7 @@
 
     </table>
     <br>
-    <a href="{{ route('cadastrarProjeto') }}">Cadastrar projeto</a>
-
-
-    <h3></h3>
+    <a href="{{ route('logout') }}">Logout</a>
     <div>
     </div>
 
